@@ -1,0 +1,57 @@
+{
+  "name": "hwg-labour-components",
+  "description": "Components for labour sites",
+  "version": "0.0.1",
+  "author": "Max Clayton Clowes <maxcc@me.com>",
+  "main": "lib/index.js",
+  "babel": {
+    "presets": [
+      "mcclowes"
+    ]
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.4",
+    "@fortawesome/free-brands-svg-icons": "^5.3.1",
+    "@fortawesome/free-solid-svg-icons": "^5.3.1",
+    "@fortawesome/react-fontawesome": "^0.1.3",
+    "babel-plugin-transform-optional-chaining": "^7.0.0-beta.3",
+    "codogo-utility-functions": "^1.2.0",
+    "eslint": "^5.6.1",
+    "fetch-jsonp": "^1.1.3",
+    "fontawesome": "^4.7.2",
+    "gatsby-link": "^2.0.2",
+    "mcclowes-scripts": "^0.5.3",
+    "pre-commit": "^1.2.2",
+    "ramda": "^0.25.0",
+    "react": "^16.5.2",
+    "react-addons-transition-group": "^15.6.2",
+    "react-helmet": "^5.2.0",
+    "react-responsive": "^5.0.0",
+    "react-router-dom": "^4.3.1",
+    "recompose": "^0.30.0",
+    "slugify": "^1.3.1",
+    "styled-components": "^3.4.9"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "prettier": "^1.14.2",
+    "prop-types": "^15.6.2"
+  },
+  "eslintConfig": {
+    "extends": "mcclowes"
+  },
+  "files": [
+    "lib"
+  ],
+  "pre-commit": [
+    "deploy"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "build": "mcclowes-scripts build",
+    "watch": "mcclowes-scripts watch",
+    "deploy": "rm -rf lib && mcclowes-scripts build",
+    "format": "mcclowes-scripts format"
+  }
+}
