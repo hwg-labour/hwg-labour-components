@@ -7,12 +7,7 @@ import styled from "styled-components";
 
 import {
 	Button,
-	Divider,
 	Section,
-	div,
-	Row,
-	Column,
-	Header,
 	Icon,
 	Image,
 } from "../toolbox";
@@ -38,63 +33,63 @@ const EventThumbnail = styled(Image)`
 // ----------------------------------------------------
 
 const EventItem = ( { event, }, ) => (
-	<Row key = { event.node.id + "-newsitem" }>
-		<Column>
-			<EventThumbnail
-				src = {
-					( event.node.image ) ?
-						`https://res.cloudinary.com/codogo/image/fetch/w_800,c_fill,g_face,f_auto/https:
-					${ event.node.image.file.url }` : "https://images.ctfassets.net/j8b2h64cwsnc/1ZTuenkUXyQ2Ysg2yi2q2S/13fd01df20e971e456e7763413b01d0f/Artboard_1.png"
-				}
-				as = { Link }
-				to = {
-					"/events/" +
-					slugify(event.node.title)
-				}
-			/>
-		</Column>
+	<Section>
+		<Section.Row>
+			<Section.Column>
+				<EventThumbnail
+					src = {
+						( event.node.image ) ?
+							`https://res.cloudinary.com/codogo/image/fetch/w_800,c_fill,g_face,f_auto/https:
+						${ event.node.image.file.url }` : "https://images.ctfassets.net/j8b2h64cwsnc/1ZTuenkUXyQ2Ysg2yi2q2S/13fd01df20e971e456e7763413b01d0f/Artboard_1.png"
+					}
+					as = { Link }
+					to = {
+						"/events/" +
+						slugify(event.node.title)
+					}
+				/>
+			</Section.Column>
 
-		<Column>
-			<Link
-				to = {
-					"/events/" +
-					slugify(event.node.title)
-				}
-			>
-				<h3>
-					{event.node.title}
-				</Header>
-			</Link>
+			<Section.Column>
+				<Link
+					to = {
+						"/events/" +
+						slugify(event.node.title)
+					}
+				>
+					<h3>
+						{event.node.title}
+					</h3>
+				</Link>
 
-			<p style = { { color: "#aaaaaa", } }>
-				{Moment(event.node.date).format(
-					"MMMM Do YYYY",
-				)}
-			</p>
-
-			{event.node.membersOnly && (
-				<p style = { { color: "#aaaaaa", } }>
-					Members only
+				<p>
+					{Moment(event.node.date).format(
+						"MMMM Do YYYY",
+					)}
 				</p>
-			)}
 
-			<p>{event.node.description}</p>
+				{event.node.membersOnly && (
+					<p>
+						Members only
+					</p>
+				)}
 
-			<Button
-				as = { Link }
-				size = "small"
-				to = {
-					"/events/" +
-					slugify(event.node.title)
-				}
-			>
-				Read more{" "}
-				<Icon name = "right arrow" />
-			</Button>
-		</Column>
+				<p>{event.node.description}</p>
 
-		<Divider section />
-	</Row>
+				<Button
+					as = { Link }
+					size = "small"
+					to = {
+						"/events/" +
+						slugify(event.node.title)
+					}
+				>
+					Read more{" "}
+					<Icon name = "right arrow" />
+				</Button>
+			</Section.Column>
+		</Section.Row>
+	</Section>
 );
 
 EventItem.propTypes = {

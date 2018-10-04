@@ -39,7 +39,7 @@ const SmartImage = styled.div`
 			padding-top: 100%;
 		` };
 	background-color: rgba(0, 0, 0, 0.2);
-	background-image: url(${ R.prop("url") });
+	background-image: url(${ props => props.url });
 	background-size: cover;
 	background-position: center center;
 	background-repeat: norepeat;

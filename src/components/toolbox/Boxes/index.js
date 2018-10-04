@@ -15,12 +15,15 @@ const Wrapper = styled.div`
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
 		grid-gap: 1em;
-	` } color: white;
+	` };
+
+	color: white;
 `;
 
 const BoxWrapper = styled.a`
-	background-color: ${ R.path([ "theme", "nav", ]) };
+	background-color: white;
 	display: block;
+	
 	${ mixins.xs`
 		margin-bottom: 1em;
 	` };

@@ -1,11 +1,6 @@
 import { 
 	Button,
-	Divider,
 	Section,
-	div,
-	Row,
-	Column,
-	Header,
 	Icon,
 	Image, 
 } from "../toolbox";
@@ -39,43 +34,39 @@ const NewsThumbnail = styled(Image)`
 
 const NewsItem = ( { news, } ) => (
 	<Section>
-		<div>
-			<Row key = { news.id + "-news" }>
-				<Column>
-					<NewsThumbnail
-						src = {
-							( news.image ) ?
-								`https://res.cloudinary.com/codogo/image/fetch/w_800,c_fill,g_face,f_auto/https:
-							${ news.image.file.url }` : "https://images.ctfassets.net/j8b2h64cwsnc/jYzRGcSiDQksQC2SQQSoy/77f3eddbf1cece8f652c8f6cf0752a42/Artboard_1.png"
-						}
-						as = { Link }
-						to = { "/news/" + slugify(news.title) }
-					/>
-				</Column>
+		<Section.Row>
+			<Section.Column>
+				<NewsThumbnail
+					src = {
+						( news.image ) ?
+							`https://res.cloudinary.com/codogo/image/fetch/w_800,c_fill,g_face,f_auto/https:
+						${ news.image.file.url }` : "https://images.ctfassets.net/j8b2h64cwsnc/jYzRGcSiDQksQC2SQQSoy/77f3eddbf1cece8f652c8f6cf0752a42/Artboard_1.png"
+					}
+					as = { Link }
+					to = { "/news/" + slugify(news.title) }
+				/>
+			</Section.Column>
 
-				<Column>
-					<Link to = { "/news/" + slugify(news.title) }>
-						<h3>{news.title}</Header>
-					</Link>
+			<Section.Column>
+				<Link to = { "/news/" + slugify(news.title) }>
+					<h3>{news.title}</h3>
+				</Link>
 
-					<p>
-						{ Moment(news.publishingDate).format("MMMM Do YYYY") }
-					</p>
+				<p>
+					{ Moment(news.publishingDate).format("MMMM Do YYYY") }
+				</p>
 
-					<p>{news.description.description}</p>
+				<p>{news.description.description}</p>
 
-					<Button
-						as = { Link }
-						size = "small"
-						to = { "/news/" + slugify(news.title) }
-					>
-						Read more <Icon name = "right arrow" />
-					</Button>
-				</Column>
-			</Row>
-
-			<Divider section />
-		</div>
+				<Button
+					as = { Link }
+					size = "small"
+					to = { "/news/" + slugify(news.title) }
+				>
+					Read more <Icon name = "right arrow" />
+				</Button>
+			</Section.Column>
+		</Section.Row>
 	</Section>
 );
 

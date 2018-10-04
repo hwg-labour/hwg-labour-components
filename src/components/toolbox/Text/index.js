@@ -3,12 +3,11 @@ import * as mixins from "codogo-utility-functions";
 import styled, { css, } from "styled-components";
 import PropTypes from "prop-types";
 import React from "react";
-import R from "ramda";
 
 export const Line = styled.div`
 	height: 1.5px;
 	width: 100%;
-	background-color: ${ R.path([ "theme", "text", ]) };
+	background-color: white;
 `;
 
 const LineCellWrapper = styled.div`
@@ -47,7 +46,7 @@ const GridCell = styled.div`
 
 export const TextCell = props => (
 	<GridCell { ...props }>
-		<TextBox { ...R.pick([ "bold", "align", ])(props) }>
+		<TextBox>
 			{props.children}
 		</TextBox>
 	</GridCell>
